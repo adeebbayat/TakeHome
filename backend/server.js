@@ -5,7 +5,7 @@ const path = require('path');
 const userController = require('./controllers/userController');
 const skillController = require('./controllers/skillController');
 const app = express();
-const port = process.env.PORT || 5002;
+const port =  5002;
 
 const mongoURI = 'mongodb+srv://username:eEsYcktqhWGNJYFj@cluster0.hh5fdrv.mongodb.net/takeHome?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(mongoURI, {
