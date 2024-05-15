@@ -2,9 +2,10 @@
   "name": "takehome",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"cd backend && node server.js\" \"cd frontend && npm start\""
+    "start": "concurrently \"cd backend && npm install && node server.js\" \"cd frontend && npm install && npm start\"",
+    "postinstall": "cd backend && npm install && cd ../frontend && npm install"
   },
   "dependencies": {
-    "concurrently": "^6.5.1"
+    "concurrently": "^7.0.0"
   }
 }
