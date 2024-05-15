@@ -2,10 +2,14 @@
   "name": "takehome",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"cd backend && npm install && node server.js\" \"cd frontend && npm install && npm start\"",
-    "postinstall": "cd backend && npm install && cd ../frontend && npm install"
+    "start": "node backend/server.js",
+    "build": "cd frontend && npm install && npm run build && cd ../backend && npm install",
+    "postinstall": "npm run build"
   },
   "dependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.0",
+    "cors": "^2.8.5"
   }
 }
