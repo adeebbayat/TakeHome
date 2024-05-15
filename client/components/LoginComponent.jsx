@@ -12,6 +12,7 @@ const LoginComponent = () => {
     // Perform login logic here
     // For now, just navigate to the skills page
     navigate(`/skills/${username}`);
+    // navigate('/api/skills')
   };
 
   return (

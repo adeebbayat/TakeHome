@@ -17,7 +17,22 @@ const SkillForm = () => {
   const [initialSkills,setInitialSkills] = useState([])
   // const handleNameChange = (e) => {
   //   setName(e.target.value);
-  // };
+  // }
+
+  useEffect(() => {
+
+    fetch(`http://localhost:3001/users/${wildcard}`)
+    .then(response => {
+      response.json()
+    })
+    .then(data => {
+      console.log('Successfully Created:', data);
+    })
+    .catch(error => {
+      console.error('Error creating skill:', error);
+    });
+
+  })
 
   useEffect(() => {
     fetch('http://localhost:3001/skills')

@@ -1,5 +1,6 @@
 const express = require('express')
 const skillController = require('./controllers/skillController')
+const userController = require('./controllers/userController')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const path = require('path')
@@ -24,6 +25,10 @@ app.get('/skills', skillController.getAllSkills, (req,res) => {
 
 app.post('/skills', skillController.createSkill, (req,res) => {
   return res.json('Succesfully Created')
+})
+
+app.get('/users/*', userController.getOneUser, (req,res) => {
+  return res.send(res.locals.user)
 })
 
 /**
