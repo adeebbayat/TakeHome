@@ -1,93 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.logout {
+  background-color: #ff4b4b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.logout:hover {
+  background-color: #ff0000;
+}
+
 .form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin-bottom: 20px;
 }
 
 .skills-input-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .selected-skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
   margin-bottom: 10px;
 }
 
 .skill-badge {
   background-color: #e0e0e0;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 5px 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
-  font-size: 14px;
 }
 
 .skill-badge button {
   background: none;
   border: none;
-  margin-left: 5px;
+  color: red;
   cursor: pointer;
-  font-size: 14px;
-  color: #888;
-}
-
-.skill-badge button:hover {
-  color: #555;
+  margin-left: 5px;
 }
 
 .suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  z-index: 10;
-  max-height: 150px;
-  overflow-y: auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  padding: 10px;
-  box-sizing: border-box;
+  flex-direction: column;
+  margin-top: 10px;
 }
 
 .suggestion-item {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
+  padding: 10px;
   cursor: pointer;
-  font-size: 14px;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .suggestion-item:hover {
   background-color: #e0e0e0;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
 }

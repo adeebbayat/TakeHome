@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import './SkillForm.css'; // For custom styles
 
 const SkillForm = () => {
@@ -9,6 +9,8 @@ const SkillForm = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [initialSkills, setInitialSkills] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
+
+  const navigate = useNavigate();
 
   // Fetch user skills on page load
   useEffect(() => {
@@ -207,8 +209,15 @@ const SkillForm = () => {
     console.log('Skills:', skills);
   };
 
+  const handleLogout = () => {
+    navigate('/');
+  }
+
   return (
-    <>
+    <div className="container">
+      <div className="header">
+        <button className='logout' onClick={handleLogout}>Logout</button>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="skills">Skills:</label>
@@ -250,7 +259,7 @@ const SkillForm = () => {
           <p>Skills: {user.skills.join(', ')}</p>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
