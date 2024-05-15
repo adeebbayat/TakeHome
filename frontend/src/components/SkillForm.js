@@ -83,9 +83,9 @@ const SkillForm = () => {
     const value = e.target.value;
     setInputValue(value);
     if (value) {
-      const filteredSuggestions = initialSkills.filter(skill =>
-        skill.toLowerCase().includes(value.toLowerCase())
-      );
+      const filteredSuggestions = initialSkills
+        .filter(skill => skill.toLowerCase().includes(value.toLowerCase()))
+        .filter(skill => !skills.includes(skill)); // Exclude already assigned skills
       setSuggestions(filteredSuggestions);
     } else {
       setSuggestions([]);
