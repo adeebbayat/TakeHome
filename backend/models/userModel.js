@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const skillSchema = new Schema({
+
+
+const userSchema = new Schema({
   name: {type: String, required: true, unique: true},
+  skills: {type: [String]}
 });
 
-module.exports = mongoose.model('Skill', skillSchema);
+module.exports = mongoose.model('User', userSchema);
