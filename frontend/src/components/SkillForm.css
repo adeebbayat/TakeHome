@@ -1,14 +1,11 @@
-.container {
-  display: flex;
-  flex-direction: column;
+.form-group {
+  margin-bottom: 15px;
 }
 
-.header {
+.header{
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
+  justify-content: end;
 }
-
 .logout {
   background-color: #ff4b4b;
   color: white;
@@ -23,37 +20,51 @@
   background-color: #ff0000;
 }
 
-.form-group {
-  margin-bottom: 20px;
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .skills-input-container {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
 .selected-skills {
   display: flex;
   flex-wrap: wrap;
+  gap: 5px;
   margin-bottom: 10px;
 }
 
 .skill-badge {
   background-color: #e0e0e0;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 5px 10px;
-  margin-right: 5px;
-  margin-bottom: 5px;
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .skill-badge button {
   background: none;
   border: none;
-  color: red;
-  cursor: pointer;
   margin-left: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #888;
+}
+
+.skill-badge button:hover {
+  color: #555;
 }
 
 .suggestions {
@@ -84,4 +95,17 @@
 
 .suggestion-item:hover {
   background-color: #e0e0e0;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
