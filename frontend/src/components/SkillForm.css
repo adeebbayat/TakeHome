@@ -6,6 +6,7 @@
   display: flex;
   justify-content: end;
 }
+
 .logout {
   background-color: #ff4b4b;
   color: white;
@@ -107,5 +108,5 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #ff0000;
 }
