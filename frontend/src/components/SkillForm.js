@@ -15,7 +15,24 @@ const SkillForm = () => {
     fetch(`http://localhost:5002/users/${wildcard}`)
       .then(response => response.json())
       .then(data => {
-        setSkills(data[0].skills);
+        if (data.length === 0) {
+          fetch('http://localhost:5002/users', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: wildcard })
+          })
+          .then(() => {
+            // Update the allUsers state to reflect the changes locally
+            setAllUsers(prevUsers => [...prevUsers, { name: wildcard, skills: [] }]);
+          })
+          .catch(error => {
+            console.error('Error creating user:', error);
+          });
+        } else {
+          setSkills(data[0].skills);
+        }
       })
       .catch(error => {
         console.error('Error fetching skills:', error);
@@ -94,6 +111,23 @@ const SkillForm = () => {
       .catch(error => {
         console.error('Error updating user:', error);
       });
+
+      // Add the skill to the skills collection if it doesn't already exist
+      if (!initialSkills.includes(skill)) {
+        fetch('http://localhost:5002/skills', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name: skill })
+        })
+        .then(() => {
+          setInitialSkills([...initialSkills, skill]);
+        })
+        .catch(error => {
+          console.error('Error adding skill to skills collection:', error);
+        });
+      }
     }
     setInputValue('');
     setSuggestions([]);
@@ -144,6 +178,23 @@ const SkillForm = () => {
         .catch(error => {
           console.error('Error updating user:', error);
         });
+
+        // Add the skill to the skills collection if it doesn't already exist
+        if (!initialSkills.includes(inputValue)) {
+          fetch('http://localhost:5002/skills', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: inputValue })
+          })
+          .then(() => {
+            setInitialSkills([...initialSkills, inputValue]);
+          })
+          .catch(error => {
+            console.error('Error adding skill to skills collection:', error);
+          });
+        }
   
         setInputValue('');
         setSuggestions([]);
