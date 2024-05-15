@@ -12,11 +12,11 @@ const SkillForm = () => {
 
   // Fetch user skills on page load
   useEffect(() => {
-    fetch(`http://localhost:5002/users/${wildcard}`)
+    fetch(`/users/${wildcard}`)
       .then(response => response.json())
       .then(data => {
         if (data.length === 0) {
-          fetch('http://localhost:5002/users', {
+          fetch('/users', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ const SkillForm = () => {
         console.error('Error fetching skills:', error);
       });
 
-    fetch('http://localhost:5002/skills')
+    fetch('/skills')
       .then(response => response.json())
       .then(data => {
         const skillNames = data.map(skill => skill.name);
@@ -51,7 +51,7 @@ const SkillForm = () => {
 
   // Fetch all users on page load (no dependencies to prevent unnecessary re-fetches)
   useEffect(() => {
-    fetch('http://localhost:5002/users')
+    fetch('/users')
       .then(response => response.json())
       .then(data => {
         setAllUsers(data);
@@ -64,7 +64,7 @@ const SkillForm = () => {
   // Update user skills in the database when skills change
   useEffect(() => {
     if (skills.length || skills.length === 0) {
-      fetch(`http://localhost:5002/users/${wildcard}`, {
+      fetch(`/users/${wildcard}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ const SkillForm = () => {
       const updatedSkills = [...skills, skill];
       setSkills(updatedSkills);
   
-      fetch(`http://localhost:5002/users/${wildcard}`, {
+      fetch(`/users/${wildcard}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -114,7 +114,7 @@ const SkillForm = () => {
 
       // Add the skill to the skills collection if it doesn't already exist
       if (!initialSkills.includes(skill)) {
-        fetch('http://localhost:5002/skills', {
+        fetch('/skills', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -137,7 +137,7 @@ const SkillForm = () => {
     const updatedSkills = skills.filter(skill => skill !== skillToRemove);
     setSkills(updatedSkills);
 
-    fetch(`http://localhost:5002/users/${wildcard}`, {
+    fetch(`/users/${wildcard}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -162,7 +162,7 @@ const SkillForm = () => {
         const updatedSkills = [...skills, inputValue];
         setSkills(updatedSkills);
   
-        fetch(`http://localhost:5002/users/${wildcard}`, {
+        fetch(`/users/${wildcard}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -181,7 +181,7 @@ const SkillForm = () => {
 
         // Add the skill to the skills collection if it doesn't already exist
         if (!initialSkills.includes(inputValue)) {
-          fetch('http://localhost:5002/skills', {
+          fetch('/skills', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
