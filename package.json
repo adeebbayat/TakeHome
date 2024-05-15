@@ -1,0 +1,10 @@
+{
+  "name": "takehome",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"cd backend && node server.js\" \"cd frontend && npm start\""
+  },
+  "dependencies": {
+    "concurrently": "^6.5.1"
+  }
+}
